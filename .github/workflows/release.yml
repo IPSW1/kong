@@ -262,12 +262,12 @@ jobs:
         sudo dmesg || true
         tail -n500 bazel-out/**/*/CMake.log || true
 
-    # - name: Upload artifacts
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: ${{ matrix.label }}-packages
-    #     path: bazel-bin/pkg
-    #     retention-days: 3
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.label }}-packages
+        path: bazel-bin/pkg
+        retention-days: 3
 
   # verify-manifest-packages:
   #   needs: [metadata, build-packages]
